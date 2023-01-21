@@ -4,7 +4,7 @@
 
 ```mermaid
 graph LR
-    SDS-PAGE-->転写-->Ponceau S染色-->1次抗体-->2次抗体-->検出
+    SDS-PAGE-->転写-->PonceauS染色-->1次抗体-->2次抗体-->検出
 ```
 
 ## Materials & Recipes
