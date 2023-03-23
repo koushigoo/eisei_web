@@ -67,4 +67,19 @@ rendered_html = tmpl.render(dicto=dicto)
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(rendered_html)
 print(rendered_html)
+
+# %%
+import git
+url = "https://github.com/koushigoo/eisei_web.git"
+repo = git.Repo()
+repo.git.add("index.html")
+try:
+    repo.git.commit("index.html", message="autoupdate")
+except:
+    print("no changes detected")
+    pass
+else:
+    print("commited")
+    repo.git.push(url, "main")
+    print("push success")
 # %%
