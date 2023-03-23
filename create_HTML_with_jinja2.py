@@ -6,7 +6,7 @@ from google.oauth2.service_account import Credentials
 # 2つのAPIを記述しないとリフレッシュトークンを3600秒毎に発行し続けなければならない
 scope = ['https://www.googleapis.com/auth/spreadsheets','https://www.googleapis.com/auth/drive']
 #ダウンロードしたjsonファイル名をクレデンシャル変数に設定。
-credentials = Credentials.from_service_account_file("C:\\Users\\Lenovo\\Dropbox\\学校用\\D1\\eiseikagaku-sheet-api-f3c39c50f9f5.json", scopes=scope)
+credentials = Credentials.from_service_account_file("Json-filepath", scopes=scope)
 #OAuth2の資格情報を使用してGoogle APIにログイン。
 gc = gspread.authorize(credentials)
 
