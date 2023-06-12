@@ -1,12 +1,13 @@
 #%%
 import gspread
 from google.oauth2.service_account import Credentials
+import os
 
 # お決まりの文句
 # 2つのAPIを記述しないとリフレッシュトークンを3600秒毎に発行し続けなければならない
 scope = ['https://www.googleapis.com/auth/spreadsheets','https://www.googleapis.com/auth/drive']
 #ダウンロードしたjsonファイル名をクレデンシャル変数に設定。
-credentials = Credentials.from_service_account_file("Json-filepath", scopes=scope)
+credentials = Credentials.from_service_account_file(os.path.join(os.environ["HOME"],"Downloads/eiseikagaku-sheet-api-f3c39c50f9f5.json"), scopes=scope)
 #OAuth2の資格情報を使用してGoogle APIにログイン。
 gc = gspread.authorize(credentials)
 
@@ -27,12 +28,9 @@ def clean(string):
     file_name = re.sub(r'[\\|/|:|?|"|<|>|\|]', '-', string)
     return file_name
 
-from urllib import parse
-URL = "https://docs.google.com/forms/d/e/1FAIpQLScT49x69waetiKe0gua2XuHo35ujf5GDkO7b6d-nD46zD3JLw/viewform"
-URL2 = ""
-
 # %%
 # 22/10/4 いい感じのwebページにする
+from urllib import parse
 URL = "https://docs.google.com/forms/d/e/1FAIpQLScT49x69waetiKe0gua2XuHo35ujf5GDkO7b6d-nD46zD3JLw/viewform"
 URL2 = ""
 dicto = {"細胞培養":[], "試薬":[], "消耗品":[]}
